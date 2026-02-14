@@ -30,10 +30,53 @@ function moveNonButton() {
 }
 
 function initialize() {
-    document.getElementById('nonButton').addEventListener('mouseenter', moveNonButton);
-    window.addEventListener('resize', moveNonButton);
+  const noBtn = document.getElementById('nonButton');
+
+  // keep your existing mouseenter runaway logic
+  noBtn.addEventListener('mouseenter', moveNonButton);
+
+  // mobile: intercept taps/clicks BEFORE they "work"
+  noBtn.addEventListener('touchstart', (e) => {
+    e.preventDefault();
+    flashNoButton();
+    showToast("Nope 🙂 try again");
+    moveNonButton();
+  }, { passive: false });
+
+  noBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    flashNoButton();
+    showToast("Nope 🙂 try again");
+    moveNonButton();
+  });
+
+  window.addEventListener('resize', moveNonButton);
 }
 
 const img = document.querySelector('img');
 initialize();
+}
+
+let toastTimer = null;
+
+function showToast(message) {
+  const toast = document.getElementById('toast');
+  if (!toast) return;
+
+  toast.textContent = message;
+  toast.classList.add('show');
+  toast.classList.remove('hide');
+
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => {
+    toast.classList.add('hide');
+    toast.classList.remove('show');
+  }, 1100);
+}
+
+function flashNoButton() {
+  const btn = document.getElementById('nonButton');
+  btn.classList.add('flash');
+  setTimeout(() => btn.classList.remove('flash'), 250);
+}
 
