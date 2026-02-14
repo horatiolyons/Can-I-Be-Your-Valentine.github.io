@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Happy Valentine’s Day &lt;3</title>
 
-  <!-- This is what applies the wheat background + fonts + button styles -->
   <link rel="stylesheet" href="styles.css" />
 </head>
 
@@ -22,7 +21,68 @@
 
       <p class="sig">Sincerely,<br><br>Future roomie<br>Horatio</p>
     </div>
+
+    <hr class="divider">
+
+    <h2 class="gallery-title">this could be us</h2>
+
+    <div class="carousel" aria-label="Photos of us">
+      <button class="carousel-btn" id="prevPhoto" type="button" aria-label="Previous photo">‹</button>
+
+      <!-- IMPORTANT: update the file extension if yours aren't .jpg (e.g. .JPG / .jpeg / .png) -->
+      <div class="carousel-frame">
+        <img id="carouselImg" src="img/horatio-lola-1.jpg" alt="Horatio and Lola photo" loading="lazy">
+      </div>
+
+      <button class="carousel-btn" id="nextPhoto" type="button" aria-label="Next photo">›</button>
+    </div>
   </div>
+
+  <script>
+    // IMPORTANT: update the file extension if yours aren't .jpg (e.g. .JPG / .jpeg / .png)
+    const photos = [
+      "img/horatio-lola-1.jpg",
+      "img/horatio-lola-2.jpg",
+      "img/horatio-lola-3.jpg",
+      "img/horatio-lola-4.jpg",
+      "img/horatio-lola-5.jpg",
+      "img/horatio-lola-6.jpg",
+      "img/horatio-lola-7.jpg",
+      "img/horatio-lola-8.jpg",
+      "img/horatio-lola-9.jpg"
+    ];
+
+    let i = 0;
+    const img = document.getElementById("carouselImg");
+    const prev = document.getElementById("prevPhoto");
+    const next = document.getElementById("nextPhoto");
+
+    function show(idx) {
+      i = (idx + photos.length) % photos.length; // wrap around
+      img.src = photos[i];
+    }
+
+    prev.addEventListener("click", () => show(i - 1));
+    next.addEventListener("click", () => show(i + 1));
+
+    // Swipe support (mobile)
+    let startX = null;
+    img.addEventListener("touchstart", (e) => {
+      startX = e.touches[0].clientX;
+    }, { passive: true });
+
+    img.addEventListener("touchend", (e) => {
+      if (startX === null) return;
+      const dx = e.changedTouches[0].clientX - startX;
+      if (Math.abs(dx) > 40) show(i + (dx < 0 ? 1 : -1));
+      startX = null;
+    }, { passive: true });
+
+    // Keyboard arrows
+    window.addEventListener("keydown", (e) => {
+      if (e.key === "ArrowLeft") show(i - 1);
+      if (e.key === "ArrowRight") show(i + 1);
+    });
+  </script>
 </body>
 </html>
-
