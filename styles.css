@@ -114,30 +114,29 @@ h1 {
   margin-top: 22px;
 }
 
-/* --- oui page tweaks --- */
+/* --- oui page tweaks (Option A: no box/panel) --- */
+
 .letter {
   width: min(820px, 92vw);
   margin: 0 auto;
 }
 
-/* Make the title feel like part of a letter */
+/* Title: smaller + left aligned on the note page */
 #textSee {
-  text-align: left;      /* was centered */
-  font-size: 2.4rem;     /* smaller than 4rem */
+  text-align: left;
+  font-size: 2.4rem;
   line-height: 1.1;
   margin: 0 0 14px 0;
 }
 
-/* Give the note a deliberate font + rhythm */
+/* Note: no white background, just readable typography */
 .note {
-  background: rgba(255, 255, 255, 0.55);
-  border-radius: 18px;
-  padding: 18px;
+  padding: 0 16px; /* gentle side padding so it doesn't hug the edge */
   margin-top: 8px;
+
+  /* choose ONE font vibe: */
   font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
-  /* If you prefer a letter-y serif instead, use:
-     font-family: Georgia, "Times New Roman", Times, serif;
-  */
+  /* font-family: Georgia, "Times New Roman", Times, serif; */
 }
 
 .note p {
@@ -149,8 +148,3 @@ h1 {
 .note .sig {
   margin-top: 18px;
 }
-
-
-
-
-
