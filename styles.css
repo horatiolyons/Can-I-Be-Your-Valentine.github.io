@@ -49,6 +49,14 @@ button:hover {
     background-color: #9aa0a6; /* sad grey no */
 }
 
+button:active { 
+    transform: translateY(1px); 
+}
+
+button { 
+    max-width: 90vw; white-space: normal; 
+}
+
 #textMain {
     margin-top: 20px;
 }
@@ -74,4 +82,5 @@ h1 {
     width: 25rem;
 
 }
+
 
