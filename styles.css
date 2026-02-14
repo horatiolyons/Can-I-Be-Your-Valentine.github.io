@@ -55,11 +55,13 @@ img {
 }
 
 h1 {
-    font-family: "Dancing Script", cursive;
-    font-weight: bold;
-    font-size: 4rem;
+  font-family: "Dancing Script", cursive;
+  font-weight: bold;
+  font-size: 4rem;
+  margin: 0 0 8px 0; /* NEW: tighter spacing below heading */
 }
 
 #textSee {
     width: 25rem;
+
 }
