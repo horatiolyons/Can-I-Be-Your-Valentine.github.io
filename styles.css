@@ -184,3 +184,29 @@ button:active {
 .carousel-btn:active {
   transform: translateY(1px);
 }
+
+/* ---------- Toast pill (index page "No" success) ---------- */
+.toast {
+  position: fixed;
+  top: 14px;
+  left: 50%;
+  transform: translateX(-50%) translateY(-6px);
+  padding: 10px 14px;
+  border-radius: 999px;
+
+  background: #d11a2a;
+  color: white;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+
+  z-index: 9999;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.15s ease, transform 0.15s ease;
+}
+
+.toast.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
