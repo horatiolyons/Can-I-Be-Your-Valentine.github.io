@@ -123,6 +123,8 @@ h1 {
   line-height: 1.1;
   margin: 0 0 14px 0;
 
+  padding: 0 16px;   /* <-- add this */
+
   width: 100%;          /* ensure it uses the full letter width */
   max-width: none;      /* don’t constrain it */
 }
@@ -146,4 +148,5 @@ h1 {
 .note .sig {
   margin-top: 18px;
 }
+
 
