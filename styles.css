@@ -184,39 +184,3 @@ button:active {
 .carousel-btn:active {
   transform: translateY(1px);
 }
-
-.toast {
-  position: fixed;
-  top: 14px;
-  left: 50%;
-  transform: translateX(-50%);
-  padding: 10px 14px;
-  border-radius: 12px;
-  background: rgba(0,0,0,0.75);
-  color: white;
-  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
-  font-size: 0.95rem;
-  z-index: 9999;
-
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.15s ease, transform 0.15s ease;
-}
-
-.toast.show {
-  opacity: 1;
-  transform: translateX(-50%) translateY(0);
-}
-
-.toast.hide {
-  opacity: 0;
-  transform: translateX(-50%) translateY(-6px);
-}
-
-/* brief red flash on the "No" button */
-#nonButton.flash {
-  filter: brightness(1) !important;
-  box-shadow: 0 0 0 4px rgba(255, 0, 0, 0.25);
-}
-
-
