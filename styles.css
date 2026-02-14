@@ -1,11 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap');
 
-body, html {
-    height: 100%;
-    margin: 0;
+body {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: flex-start;   /* was center */
     align-items: center;
+    min-height: 100vh;             /* was height: 100vh */
+    padding-top: 32px;             /* gives breathing room */
+    overflow-y: auto;              /* allow scroll if text is long */
+    background-color: wheat;
 }
 
 * {
@@ -82,5 +85,6 @@ h1 {
     width: 25rem;
 
 }
+
 
 
