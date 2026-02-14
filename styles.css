@@ -1,142 +1,115 @@
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap');
 
+/* ---------- Base page layout ---------- */
 body {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;   /* was center */
-    align-items: center;
-    min-height: 100vh;             /* was height: 100vh */
-    padding-top: 32px;             /* gives breathing room */
-    overflow-y: auto;              /* allow scroll if text is long */
-    background-color: wheat;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  min-height: 100vh;
+  padding-top: 32px;
+  overflow-y: auto;
+  background-color: wheat;
+  margin: 0;
 }
 
 * {
-    background-color: wheat;
+  box-sizing: border-box;
 }
 
+/* Keep the general "wheat" vibe without forcing every element's background */
 .container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  height: 100%;
 }
 
-.button-container {
-    margin-top: 20px;
-}
-
-button {
-    margin: 10px;
-    padding: 16px 28px;             /* bigger */
-    border: none;
-    border-radius: 14px;            /* nicer rounding than 25% */
-    color: white;
-    font-size: 1.15rem;             /* bigger text */
-    font-weight: 600;
-    transition: left 0.25s ease, top 0.25s ease, filter 0.15s ease;
-}
-
-button:hover {
-    cursor: pointer;
-    filter: brightness(0.95);
-}
-
-#ouiButton {
-    background-color: #ff3b7a; /* pink yes */
-}
-
-#nonButton {
-    background-color: #9aa0a6; /* sad grey no */
-}
-
-button:active { 
-    transform: translateY(1px); 
-}
-
-button { 
-    max-width: 90vw; white-space: normal; 
-}
-
-#textMain {
-    margin-top: 20px;
-}
-
-img {
-    width: 260px;
-    height: 300px;
-}
-
-#dancingCat {
-    width: 75%;
-    height: 75%;
-}
-
+/* ---------- Headings ---------- */
 h1 {
   font-family: "Dancing Script", cursive;
   font-weight: bold;
   font-size: 4rem;
-  margin: 0 0 8px 0; /* NEW: tighter spacing below heading */
+  margin: 0 0 8px 0;
 }
 
-/* --- YES PAGE ("oui") letter layout --- */
-.letter {
-  width: min(760px, 92vw);
-  margin: 0 auto;
+/* Index page heading spacing */
+#textMain {
+  margin-top: 20px;
 }
 
-#textSee {
-  margin: 0 0 18px 0;
-  text-align: center;
-  line-height: 1.05;
+/* ---------- Images ---------- */
+img {
+  width: 260px;
+  height: 300px;
 }
 
-/* The note text */
-.note {
-  text-align: left;
+/* (legacy id from the original repo; harmless if unused) */
+#dancingCat {
+  width: 75%;
+  height: 75%;
 }
 
-.note p {
-  margin: 0 0 14px 0;
+/* ---------- Buttons (index page + general) ---------- */
+.button-container {
+  margin-top: 20px;
+}
+
+button {
+  margin: 10px;
+  padding: 16px 28px;
+  border: none;
+  border-radius: 14px;
+  color: white;
   font-size: 1.15rem;
-  line-height: 1.6;
+  font-weight: 600;
+  transition: left 0.25s ease, top 0.25s ease, filter 0.15s ease, transform 0.05s ease;
+  max-width: 90vw;
+  white-space: normal;
 }
 
-/* Signature block spacing */
-.note .sig {
-  margin-top: 22px;
+button:hover {
+  cursor: pointer;
+  filter: brightness(0.95);
 }
 
-/* --- oui page tweaks (Option A: no box/panel) --- */
+button:active {
+  transform: translateY(1px);
+}
 
+#ouiButton {
+  background-color: #ff3b7a; /* pink yes */
+}
+
+#nonButton {
+  background-color: #9aa0a6; /* sad grey no */
+}
+
+/* ---------- Oui page: letter + note ---------- */
 .letter {
   width: min(820px, 92vw);
   margin: 0 auto;
 }
 
-/* Title: smaller + left aligned on the note page */
+/* Title on oui page */
 #textSee {
   text-align: left;
   font-size: 2.4rem;
   line-height: 1.1;
   margin: 0 0 14px 0;
 
-  padding: 0 16px;   /* <-- add this */
-
-  width: 100%;          /* ensure it uses the full letter width */
-  max-width: none;      /* don’t constrain it */
+  padding: 0 16px;   /* aligns with note text */
+  width: 100%;
+  max-width: none;
 }
 
-/* Note: no white background, just readable typography */
 .note {
-  padding: 0 16px; /* gentle side padding so it doesn't hug the edge */
+  padding: 0 16px;
   margin-top: 8px;
-
-  /* choose ONE font vibe: */
+  text-align: left;
   font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
-  /* font-family: Georgia, "Times New Roman", Times, serif; */
 }
 
 .note p {
@@ -149,4 +122,65 @@ h1 {
   margin-top: 18px;
 }
 
+/* ---------- Oui page: divider + carousel ---------- */
+.divider {
+  width: min(820px, 92vw);
+  margin: 18px auto 12px auto;
+  border: none;
+  border-top: 2px solid rgba(0, 0, 0, 0.15);
+}
 
+.gallery-title {
+  width: min(820px, 92vw);
+  margin: 0 auto 10px auto;
+  padding: 0 16px;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  text-transform: lowercase;
+}
+
+/* Carousel layout */
+.carousel {
+  width: min(820px, 92vw);
+  margin: 0 auto 24px auto;
+  display: grid;
+  grid-template-columns: 44px 1fr 44px;
+  align-items: center;
+  gap: 10px;
+}
+
+.carousel-frame {
+  border-radius: 18px;
+  overflow: hidden;
+}
+
+/* Only target the carousel image so we don't break the index cat GIF sizing */
+.carousel-frame img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Carousel buttons (separate class so it doesn't affect Yes/No) */
+.carousel-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+  border: none;
+  font-size: 26px;
+  font-weight: 700;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.25);
+  padding: 0;
+  margin: 0;
+}
+
+.carousel-btn:hover {
+  cursor: pointer;
+  filter: brightness(0.95);
+}
+
+.carousel-btn:active {
+  transform: translateY(1px);
+}
