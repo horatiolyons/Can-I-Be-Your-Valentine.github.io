@@ -81,11 +81,6 @@ h1 {
   margin: 0 0 8px 0; /* NEW: tighter spacing below heading */
 }
 
-#textSee {
-    width: 25rem;
-
-}
-
 /* --- YES PAGE ("oui") letter layout --- */
 .letter {
   width: min(760px, 92vw);
@@ -127,6 +122,9 @@ h1 {
   font-size: 2.4rem;
   line-height: 1.1;
   margin: 0 0 14px 0;
+
+  width: 100%;          /* ensure it uses the full letter width */
+  max-width: none;      /* don’t constrain it */
 }
 
 /* Note: no white background, just readable typography */
@@ -148,3 +146,4 @@ h1 {
 .note .sig {
   margin-top: 18px;
 }
+
