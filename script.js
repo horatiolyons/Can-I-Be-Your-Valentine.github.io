@@ -52,10 +52,11 @@ function initialize() {
   noBtn.addEventListener('mouseenter', moveNonButton);
 
   // NEW: only when they actually manage to click/tap "No"
-  noBtn.addEventListener('click', () => showNoToast("Nope."));
-  noBtn.addEventListener('touchend', () => showNoToast("Nope."), { passive: true });
+  noBtn.addEventListener('click', () => showNoToast("ERROR."));
+  noBtn.addEventListener('touchend', () => showNoToast("ERROR."), { passive: true });
 
   window.addEventListener('resize', moveNonButton);
 }
 
 initialize();
+
